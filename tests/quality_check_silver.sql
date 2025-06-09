@@ -29,7 +29,7 @@ WHERE cst_lastname != TRIM(cst_lastname)
 
 -- Data Standardization & Consistency. Expectation: No Result
 
-SELECT DISTINCT cst_material_status
+SELECT DISTINCT cst_marital_status
 FROM silver.crm_cust_info
 
 SELECT DISTINCT cst_gndr
@@ -52,9 +52,9 @@ HAVING COUNT(*) > 1 OR prd_id IS NULL
 
 -- Check for unwanted spaces
 
-SELECT prd_nme
+SELECT prd_name
 FROM silver.crm_prd_info
-WHERE prd_nme != TRIM(prd_nme)			-- No unwanted spaces
+WHERE prd_name != TRIM(prd_name)			-- No unwanted spaces
 
 -- Check for NULLs or negative numbers in prd_cost
 
