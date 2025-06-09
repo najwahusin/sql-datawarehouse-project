@@ -25,7 +25,7 @@ BEGIN
 			cst_key,
 			cst_firstname,
 			cst_lastname,
-			cst_material_status,
+			cst_marital_status,
 			cst_gndr,
 			cst_create_date 
 			)
@@ -35,10 +35,10 @@ BEGIN
 			cst_key,
 			TRIM(cst_firstname) cst_firstname,
 			TRIM(cst_lastname) cst_lastname,
-			CASE WHEN UPPER(TRIM(cst_material_status)) = 'S' THEN 'Single'
-				 WHEN UPPER(TRIM(cst_material_status)) = 'M' THEN 'Married'
+			CASE WHEN UPPER(TRIM(cst_marital_status)) = 'S' THEN 'Single'
+				 WHEN UPPER(TRIM(cst_marital_status)) = 'M' THEN 'Married'
 			ELSE 'n/a'
-			END cst_material_status,
+			END cst_marital_status,
 			CASE WHEN UPPER(TRIM(cst_gndr)) = 'F' THEN 'Female'
 				 WHEN UPPER(TRIM(cst_gndr)) = 'M' THEN 'Male'
 			ELSE 'n/a'
@@ -62,9 +62,9 @@ BEGIN
 		PRINT '>> Inserting Data Into: silver.crm_prd_info';
 		INSERT INTO silver.crm_prd_info (
 			prd_id,
-			cst_id,
+			cat_id,
 			prd_key,
-			prd_nme,
+			prd_name,
 			prd_cost,
 			prd_line,
 			prd_start_dt,
@@ -75,7 +75,7 @@ BEGIN
 			prd_id,
 			REPLACE(SUBSTRING(prd_key, 1, 5), '-', '_') cat_id,
 			SUBSTRING(prd_key, 7, LEN(prd_key)) prd_key,
-			prd_nme,
+			prd_name,
 			ISNULL(prd_cost, 0) prd_cost,
 			CASE UPPER(TRIM(prd_line))
 				 WHEN 'M' THEN 'Mountain'
