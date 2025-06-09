@@ -1,11 +1,8 @@
-
 USE DataWarehouse;
 GO
 
 -- ======================================================
--- Create Silver Tables
--- ======================================================
--- Creating tables for cleaned and transformed data
+-- Create Table
 -- ======================================================
 
 IF OBJECT_ID('silver.crm_cust_info', 'U') IS NOT NULL
@@ -32,7 +29,7 @@ CREATE TABLE silver.crm_prd_info (
     prd_id          INT,
     cat_id          NVARCHAR(50),
     prd_key         NVARCHAR(50),
-    prd_nm          NVARCHAR(50),
+    prd_name        NVARCHAR(50),
     prd_cost        INT,
     prd_line        NVARCHAR(50),
     prd_start_dt    DATE,
@@ -77,7 +74,7 @@ GO
 CREATE TABLE silver.erp_cust_az12 (
     cid             NVARCHAR(50),
     bdate           DATE,
-    gen             NVARCHAR(50),
+    gndr            NVARCHAR(50),
     dwh_create_date DATETIME2 DEFAULT GETDATE()
 );
 GO
