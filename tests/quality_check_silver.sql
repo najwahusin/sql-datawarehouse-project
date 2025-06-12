@@ -145,7 +145,7 @@ FROM silver.erp_cust_az12
 SELECT * FROM silver.erp_cust_az12;
 
 -- ======================================================
--- Quality Check in silver.erp_cust_az12
+-- Quality Check in silver.erp_loc_a101
 -- ======================================================
 
 --Check for mismatch cid and_cst_key
@@ -162,24 +162,24 @@ FROM silver.erp_loc_a101
 SELECT * FROM silver.erp_loc_a101;
 
 -- ======================================================
--- Quality Check in silver.erp_cust_az12
+-- Quality Check in silver.erp_px_cat_g1v2
 -- ======================================================
 
 -- Check for unwanted spaces
 SELECT *
-FROM silver.erp_px_cat_giv2
+FROM silver.erp_px_cat_g1v2
 WHERE cat != TRIM(cat) 
 OR subcat != TRIM(subcat) 
 OR maintenance != TRIM(maintenance)
 
 -- Data standardization & consistency
 SELECT DISTINCT cat
-FROM silver.erp_px_cat_giv2
+FROM silver.erp_px_cat_g1v2
 
 SELECT DISTINCT subcat
-FROM silver.erp_px_cat_giv2
+FROM silver.erp_px_cat_g1v2
 
 SELECT DISTINCT maintenance
-FROM silver.erp_px_cat_giv2
+FROM silver.erp_px_cat_g1v2
 
-SELECT * FROM silver.erp_px_cat_giv2;
+SELECT * FROM silver.erp_px_cat_g1v2;
