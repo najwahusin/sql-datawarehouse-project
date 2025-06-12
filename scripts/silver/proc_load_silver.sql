@@ -190,10 +190,10 @@ BEGIN
 		
 		-- Loading silver.erp_px_cat_giv2
 		SET @start_time = GETDATE();
-		PRINT '>> Truncating Table: silver.erp_px_cat_giv2';
-		TRUNCATE TABLE silver.erp_px_cat_giv2;
-		PRINT '>> Inserting Data Into: silver.erp_px_cat_giv2';
-		INSERT INTO silver.erp_px_cat_giv2(
+		PRINT '>> Truncating Table: silver.erp_px_cat_g1v2';
+		TRUNCATE TABLE silver.erp_px_cat_g1v2;
+		PRINT '>> Inserting Data Into: silver.erp_px_cat_g1v2';
+		INSERT INTO silver.erp_px_cat_g1v2(
 			id,
 			cat,
 			subcat,
@@ -205,7 +205,7 @@ BEGIN
 			cat,
 			subcat,
 			maintenance
-		FROM bronze.erp_px_cat_giv2;
+		FROM bronze.erp_px_cat_g1v2;
 		SET @end_time = GETDATE();
 		PRINT '>> Load Duration : ' + CAST(DATEDIFF(SECOND, @start_time, @end_time)  AS NVARCHAR) + 'seconds';
 		PRINT '------------------------------------------------------';
